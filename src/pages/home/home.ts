@@ -27,11 +27,11 @@ export class HomePage {
   ) {
     this.scoreList = [];
     this.tom = [];
+    this.loadedTom =[];
 
   }
 
   ionViewDidLoad() {
-    //this.scoreList = this.firestoreProvider.getScoreList().valueChanges(); 
     this.afAuth.authState.subscribe(data => {
       if(data.email){
       this.toast.create({
@@ -57,9 +57,8 @@ export class HomePage {
         teller++;
 
       });
-
     })
-    console.log(this.scoreList)   
+    // console.log(this.scoreList)   
   }
 
   goToCreatePage():void {
@@ -77,11 +76,12 @@ export class HomePage {
        score:this.scoreList[teller],
        spel:JSON.parse(JSON.stringify(data[0])
       )});  
-      this.loadedTom.push({
-        score:this.scoreList[teller],
+       this.loadedTom.push({
+         score:this.scoreList[teller],
         spel:JSON.parse(JSON.stringify(data[0])
-       )});      
+        )});      
    })
+   console.log(this.tom);
   }
 
   initializeItems():void {

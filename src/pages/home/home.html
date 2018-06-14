@@ -25,13 +25,13 @@
     </ion-item> -->
     <ion-card *ngFor="let score of tom" (click)="goToDetailPage(score)">
         <ion-card-header>
-            Titel: {{ score.score.Titel }}
+            Titel: {{ score.score.Titel }} 
         </ion-card-header>
         <ion-card-content>
-            Winnaar van het spel: {{ score.score.winnaar }}
+            Winnaar van het spel: {{ score.score.winnaar }} met {{ score.score.score}} punten
         </ion-card-content>
         <ion-card-content>
-            Gespeelde spel: {{ score.spel.naam}}
+            Gespeelde spel: {{ score.spel.naam}} 
         </ion-card-content>
     </ion-card>
 </ion-content>
