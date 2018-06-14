@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Score } from '../../models/score.interface';
 import { Spel } from '../../models/spel.interface';
+import {AngularFireAuth } from 'angularfire2/auth'
 
 /*
   Generated class for the FirestoreProvider provider.
@@ -12,7 +13,17 @@ import { Spel } from '../../models/spel.interface';
 @Injectable()
 export class FirestoreProvider {
 
-  constructor(public firestore: AngularFirestore) {}
+
+  userId: string;
+
+  constructor(
+    public firestore: AngularFirestore,
+    private afAuth: AngularFireAuth
+  ) {
+    this.afAuth.authState.subscribe(user =>{
+      if(user) this.userId = user.uid
+    })
+  }
 
   createScore(
     Titel: string,
@@ -22,16 +33,7 @@ export class FirestoreProvider {
     score:number,
     datum:Date
   ): Promise<void> {
-    const id = this.firestore.createId();
-    // var data = {
-    //   id: id,
-    //   Titel: Titel,
-    //   gezelschapSpelId: gezelschapSpelId,
-    //   datum:datum,
-    //   winnaar:winnaar,
-    //   score:score,
-    //   omschrijving:omschrijving
-    // };
+    const id = this.firestore.createId();    
     
     return this.firestore.doc(`scoreList/${id}`).set({         
       Titel,
@@ -43,7 +45,7 @@ export class FirestoreProvider {
       winnaar           
     });
   };
-  getScoreList()/*: AngularFirestoreCollection<Score>*/ {
+  getScoreList() {
     return this.firestore.collection(`scoreList`).snapshotChanges();
   }
   deleteScore(scoreId:string): Promise<void> {

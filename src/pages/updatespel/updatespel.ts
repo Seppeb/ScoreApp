@@ -21,6 +21,7 @@ export class UpdatespelPage {
 
   public updateSpelForm: FormGroup;
   public spel: Spel;
+  public tempspel: Spel;
 
   constructor(
     public navCtrl: NavController, 
@@ -37,7 +38,7 @@ export class UpdatespelPage {
       naam: [this.spel.naam, Validators.required],
       omschrijving: [this.spel.omschrijving, Validators.required],
       uitgeverij: [this.spel.uitgeverij, Validators.required],
-      aantalSpelers: [this.spel.aantalSpeler, Validators.required]      
+      aantalSpelers: [this.spel.aantalSpelers, Validators.required]      
       })
   }
   updateSpel():void {

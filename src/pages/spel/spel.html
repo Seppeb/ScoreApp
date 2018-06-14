@@ -21,7 +21,7 @@
 <ion-content class="card-background-page">
 
     <ion-card *ngFor="let spel of spelList | async" (click)="goToSpelDetailPage(spel)">
-        <label>{{spel.naam}}</label>
+        <button ion-button full>{{spel.naam}}</button>
     </ion-card>
 
 </ion-content>
