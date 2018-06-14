@@ -1,0 +1,58 @@
+<!--
+  Generated template for the CreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Create</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="createScoreForm" (submit)="createScore()" novalidate>
+        <ion-item>
+            <ion-label floating>Titel</ion-label>
+            <ion-input formControlName="Titel" type="text">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Spel</ion-label>
+            <ion-select [(ngModel)]="gezelschapSpel" formControlName="gezelschapSpelId" type="text">
+                <ion-option *ngFor="let spel of spelList | async" [value]="spel.id">{{spel.naam}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Datum</ion-label>
+            <ion-input formControlName="datum" type="date">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Omschrijving</ion-label>
+            <ion-textarea formControlName="omschrijving" type="text">
+            </ion-textarea>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Winnaar</ion-label>
+            <ion-input formControlName="winnaar" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Score</ion-label>
+            <ion-input formControlName="score" type="number">
+            </ion-input>
+        </ion-item>
+
+
+        <button ion-button block type="submit" [disabled]="!createScoreForm.valid">
+      Score toevoegen
+    </button>
+    </form>
+</ion-content>
