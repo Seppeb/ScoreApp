@@ -57,7 +57,7 @@ export class FirestoreProvider {
     naam: string,
     uitgeverij: string,
     omschrijving: string,    
-    aantalSpelers:number,    
+    aantalSpeler:number,    
   ): Promise<void> {
     const id = this.firestore.createId();
 
@@ -66,7 +66,7 @@ export class FirestoreProvider {
       naam,
       uitgeverij,
       omschrijving,
-      aantalSpelers,      
+      aantalSpeler,      
     });
   };
 
@@ -81,14 +81,14 @@ export class FirestoreProvider {
     naam: string,
     uitgeverij: string,
     omschrijving: string,    
-    aantalSpelers:number
+    aantalSpeler:number
   ): Promise<void> {    
     return this.firestore.doc(`spelList/${id}`).update({
       id,
       naam,
       uitgeverij,
       omschrijving,
-      aantalSpelers,      
+      aantalSpeler,      
     });    
   }
    getSpelById(spelId:string) {     
@@ -102,7 +102,7 @@ export class FirestoreProvider {
 
 
   getSpelNaamById(spelId:string) {
-    var spel;
+    var spel   
     spel = this.firestore.doc(spelId).ref.get() 
    }   
 }

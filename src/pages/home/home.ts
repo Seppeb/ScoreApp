@@ -58,7 +58,7 @@ export class HomePage {
 
       });
     })
-    // console.log(this.scoreList)   
+     console.log(this.scoreList)   
   }
 
   goToCreatePage():void {

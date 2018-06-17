@@ -38,26 +38,26 @@ export class UpdatespelPage {
       naam: [this.spel.naam, Validators.required],
       omschrijving: [this.spel.omschrijving, Validators.required],
       uitgeverij: [this.spel.uitgeverij, Validators.required],
-      aantalSpelers: [this.spel.aantalSpelers, Validators.required]      
+      aantalSpeler: [this.spel.aantalSpeler, Validators.required]      
       })
   }
   updateSpel():void {
     const loading: Loading = this.loadingCtrl.create();
-    loading.present();
+    loading.present();   
 
 
     const id = this.spel.id;
     const naam = this.updateSpelForm.value.naam;
     const uitgeverij = this.updateSpelForm.value.uitgeverij;
     const omschrijving = this.updateSpelForm.value.omschrijving;
-    const aantalSpelers = this.updateSpelForm.value.aantalSpelers;
+    const aantalSpeler = this.updateSpelForm.value.aantalSpeler;
     
     this.firestoreProvider.updateSpel(
       id,
       naam,
       uitgeverij,
       omschrijving,
-      aantalSpelers
+      aantalSpeler
     ).then(() => {
       loading.dismiss().then(() => {
         this.navCtrl.pop();
