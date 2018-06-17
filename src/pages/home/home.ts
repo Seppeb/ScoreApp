@@ -28,7 +28,27 @@ export class HomePage {
     this.scoreList = [];
     this.tom = [];
     this.loadedTom =[];
+  }
 
+  ionViewWillEnter(): void{
+
+    // caching probleem, momenteel gewoon in 
+    // this.firestoreProvider.getScoreList().subscribe( (data)=>{      
+    //   var teller=0;
+
+    //   data.map(actions => {
+
+    //     let theData = actions.payload.doc.data();
+    //     let id = actions.payload.doc.id;
+    //     console.log(theData);
+
+    //     this.scoreList.push(theData);//hier bouw ik mijn eigen array op
+
+    //     this.getSpelById(theData.gezelschapSpelId,teller);
+    //     teller++;
+
+    //   });
+    // })
   }
 
   ionViewDidLoad() {
@@ -37,12 +57,11 @@ export class HomePage {
       this.toast.create({
         message: `Welkom op de score-app, ${data.email}`,
         duration: 3000
-      }).present();
-    }
+        }).present();
+      }
     })
-    
-    this.firestoreProvider.getScoreList().subscribe( (data)=>{
-      console.log(data);
+
+    this.firestoreProvider.getScoreList().subscribe( (data)=>{      
       var teller=0;
 
       data.map(actions => {
@@ -57,8 +76,7 @@ export class HomePage {
         teller++;
 
       });
-    })
-     console.log(this.scoreList)   
+    }) 
   }
 
   goToCreatePage():void {
@@ -81,7 +99,7 @@ export class HomePage {
         spel:JSON.parse(JSON.stringify(data[0])
         )});      
    })
-   console.log(this.tom);
+   //console.log(this.tom);
   }
 
   initializeItems():void {

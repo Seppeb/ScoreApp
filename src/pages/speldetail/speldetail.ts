@@ -25,12 +25,20 @@ export class SpeldetailPage {
      public firestoreProvider: FirestoreProvider,
      public alertCtrl: AlertController
     ) {
-        this.spel = this.navParams.get('spel');
+      this.spel = this.navParams.get('spel');
   }  
 
    updateSpel(spel){
     this.navCtrl.push('UpdatespelPage',{spel:spel})
   }
+
+  // ionViewWillEnter() {
+  //   this.spel = this.navParams.get('spel');
+  // }
+
+  // ionViewDidLoad() {
+  //   this.spel = this.navParams.get('spel');
+  // }
 
   deleteSpel(spelId:string, spelNaam:string):void{
     console.log(spelId, spelNaam)

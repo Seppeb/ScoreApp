@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Alert, AlertController } from 'ionic-angular';
 import { Score } from '../../models/score.interface';
 import { FirestoreProvider } from'../../providers/firestore/firestore'
+import { Spel } from '../../models/spel.interface';
 
 
 /**
@@ -18,6 +19,8 @@ import { FirestoreProvider } from'../../providers/firestore/firestore'
 })
 export class DetailPage {
   public score:Score;
+  public isErScore:boolean = true;
+  public spel:Spel;
 
   constructor(
     public navCtrl: NavController, 
@@ -26,13 +29,24 @@ export class DetailPage {
     public firestoreProvider:FirestoreProvider
   ){
     this.score = this.navParams.get('score');
+    this.spel = this.score.spel;
   }
 
   ionViewDidLoad() {
-    console.log(this.score)
+    // console.log(this.score.score.score)
+    // if(!this.score.score.score) {
+    //   this.isErScore = false;
+    // }else {
+    //   this.isErScore = true;
+    // }
+    // console.log(this.isErScore)
+console.log(this.score)
+console.log(this.spel)
+
   }
   deleteScore(scoreId:string, scoreTitel:string):void{
     console.log(scoreId, scoreTitel)
+    
     const alert: Alert = this.alertCtrl.create({
       message: `Bent u zeker dat u de score ${scoreTitel} wilt verwijderen?`,
       buttons: [
@@ -46,7 +60,9 @@ export class DetailPage {
           text: 'OK',
           handler: () => {
             this.firestoreProvider.deleteScore(scoreId).then(() => {
-              this.navCtrl.pop();
+              // this.navCtrl.pop();
+              this.navCtrl.setRoot('HomePage');
+              this.navCtrl.setRoot('HomePage');
             });
           },
         },
@@ -54,4 +70,11 @@ export class DetailPage {
     });
     alert.present();
   }
+
+  
+
+   naarSpelDetail():void {
+     this.navCtrl.push('SpeldetailPage',{spel:this.spel});
+   } 
+
 }

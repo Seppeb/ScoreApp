@@ -59,8 +59,9 @@ export class UpdatespelPage {
       omschrijving,
       aantalSpeler
     ).then(() => {
-      loading.dismiss().then(() => {
-        this.navCtrl.pop();
+      loading.dismiss().then(() => {        
+       // this.navCtrl.push('SpeldetailPage',this.spel);
+        this.navCtrl.pop()
       });
     },
     error => {

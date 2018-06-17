@@ -27,13 +27,13 @@
         </ion-item>
         <ion-item>
             <ion-label floating>Omschrijving</ion-label>
-            <ion-input formControlName="omschrijving" type="text"> {{spel.omschrijving}}
-            </ion-input>
+            <ion-textarea formControlName="omschrijving" type="text"> {{spel.omschrijving}}
+            </ion-textarea>
         </ion-item>
         <ion-item>
             <ion-label floating>aantal spelers</ion-label>
-            <ion-textarea formControlName="aantalSpeler" type="number">{{spel.aantalSpeler}}
-            </ion-textarea>
+            <ion-input formControlName="aantalSpeler" type="number">{{spel.aantalSpeler}}
+            </ion-input>
         </ion-item>
         <button ion-button block type="submit" [disabled]="!updateSpelForm.valid">
       Spel Updaten

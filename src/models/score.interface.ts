@@ -4,6 +4,6 @@ export interface Score {
     gezelschapSpel:string;
     omschrijving:string;    
     winnaar:string;
-    score:number;
+    score?:number;
     datum:Date;
 }

@@ -35,10 +35,6 @@ export class CreateSpelPage {
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateSpelPage');
-  }
-
   createSpel(): void {
     const loading: Loading = this.loadingCtrl.create();
     loading.present();
@@ -46,12 +42,12 @@ export class CreateSpelPage {
     const naam = this.createSpelForm.value.naam;
     const uitgeverij = this.createSpelForm.value.uitgeverij;
     const omschrijving = this.createSpelForm.value.omschrijving;
-    const aantalSpelers = this.createSpelForm.value.aantalSpelers;    
+    const aantalSpeler = this.createSpelForm.value.aantalSpelers;    
     this.firestoreProvider.createSpel(
       naam,
       uitgeverij, 
       omschrijving, 
-      aantalSpelers
+      aantalSpeler
     ).then(
       () => {
         loading.dismiss().then(() => {

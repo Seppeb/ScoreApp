@@ -16,24 +16,24 @@
 <ion-content padding>
     <form [formGroup]="createSpelForm" (submit)="createSpel()" novalidate>
         <ion-item>
-            <ion-label stacked>Naam</ion-label>
-            <ion-input formControlName="naam" type="text" placeholder="naam van het spel">
+            <ion-label floating>Naam</ion-label>
+            <ion-input formControlName="naam" type="text">
             </ion-input>
         </ion-item>
         <ion-item>
-            <ion-label stacked>Uitgeverij</ion-label>
-            <ion-input formControlName="uitgeverij" type="text" placeholder="uitgeverij van het spel">
+            <ion-label floating>Uitgeverij</ion-label>
+            <ion-input formControlName="uitgeverij" type="text" >
             </ion-input>
         </ion-item>
         <ion-item>
-            <ion-label stacked>Omschrijving</ion-label>
-            <ion-input formControlName="omschrijving" type="text" placeholder="omschrijving/opmerkingen?">
-            </ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>aantal spelers</ion-label>
-            <ion-textarea formControlName="aantalSpelers" type="number" placeholder="met hoeveel kan je spel spelen?">
+            <ion-label floating>Omschrijving</ion-label>
+            <ion-textarea formControlName="omschrijving" type="text">
             </ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>aantal spelers</ion-label>
+            <ion-input formControlName="aantalSpelers" type="number">
+            </ion-input>
         </ion-item>
         <button ion-button block type="submit" [disabled]="!createSpelForm.valid">
       Spel toevoegen

@@ -35,7 +35,7 @@ export class CreatePage {
     gezelschapSpelId: ['', Validators.required],
     omschrijving: ['', Validators.required],
     winnaar: ['', Validators.required],    
-    score: ['', Validators.required],
+    score: [''],
     datum: ['', Validators.required] 
     })
   }
@@ -58,9 +58,12 @@ export class CreatePage {
       score,
       datum)
     .then(
-      () => {
+      () => {        
+        
         loading.dismiss().then(() => {
-          this.navCtrl.pop();
+          //this.navCtrl.pop();
+        this.navCtrl.setRoot('HomePage');
+        this.navCtrl.setRoot('HomePage')
         });
       },
       error => {

@@ -91,13 +91,9 @@ export class FirestoreProvider {
       aantalSpeler,      
     });    
   }
-   getSpelById(spelId:string) {     
-     console.log(spelId)
-   // return this.firestore.doc(spelId).ref.get();
-
-   // return this.firestore.collection("spelList").valueChanges();
-   //afs.collection('items', ref => ref.where('size', '==', 'large'))
-   return this.firestore.collection("spelList", ref => ref.where("id","==",spelId)).valueChanges();
+   getSpelById(spelId:string) {    
+   return this.firestore.collection("spelList", ref => ref
+   .where("id","==",spelId)).valueChanges();
    }
 
 

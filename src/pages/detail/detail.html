@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar color="light">
         <ion-title>
             {{ score.score.Titel }}
         </ion-title>
@@ -19,9 +19,15 @@
         </ion-card-header>
         <ion-card-content>
             Winnaar van het spel: {{score.score.winnaar}}
+             <!-- <ion-card-content *ngIf="isErScore" >
+                met een score van {{score.score.score}}
+            </ion-card-content> -->            
         </ion-card-content>
+        <ion-card-content *ngIf="score.score.score">
+            met een totaal van {{ score.score.score}} punten 
+        </ion-card-content> 
         <ion-card-content>
-            Het Gespeelde spel: {{score.spel.naam}}
+            Het Gespeelde spel: {{score.spel.naam}} <button small (click)='naarSpelDetail()'ion-button color="light">Spel Details</button>
         </ion-card-content>
         <ion-card-content>
             Omschrijving: {{score.score.omschrijving}}

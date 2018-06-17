@@ -28,8 +28,10 @@
             Titel: {{ score.score.Titel }} 
         </ion-card-header>
         <ion-card-content>
-            Winnaar van het spel: {{ score.score.winnaar }} met {{ score.score.score}} punten
+            Winnaar van het spel: {{ score.score.winnaar }}
+            
         </ion-card-content>
+        <ion-card-content *ngIf="score.score.score">met een totaal van {{ score.score.score}} punten </ion-card-content> 
         <ion-card-content>
             Gespeelde spel: {{ score.spel.naam}} 
         </ion-card-content>
