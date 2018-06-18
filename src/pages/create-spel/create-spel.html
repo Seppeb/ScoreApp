@@ -22,7 +22,7 @@
         </ion-item>
         <ion-item>
             <ion-label floating>Uitgeverij</ion-label>
-            <ion-input formControlName="uitgeverij" type="text" >
+            <ion-input formControlName="uitgeverij" type="text">
             </ion-input>
         </ion-item>
         <ion-item>
@@ -35,6 +35,11 @@
             <ion-input formControlName="aantalSpelers" type="number">
             </ion-input>
         </ion-item>
+        <!-- <ion-item>
+            <ion-label>Foto</ion-label>
+            <ion-input formControlName="foto" type="file">
+            </ion-input>
+        </ion-item> -->
         <button ion-button block type="submit" [disabled]="!createSpelForm.valid">
       Spel toevoegen
     </button>

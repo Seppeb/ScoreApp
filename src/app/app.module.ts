@@ -12,6 +12,8 @@ import { firebaseConfig } from './credentials'
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
 
   ],
   bootstrap: [IonicApp],

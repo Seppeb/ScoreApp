@@ -3,5 +3,6 @@ export interface Spel {
     naam:string;
     uitgeverij:string;
     omschrijving:string;
-    aantalSpeler:number;    
+    aantalSpeler:number; 
+    foto?:File;   
 }

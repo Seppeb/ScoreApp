@@ -31,7 +31,8 @@ export class CreateSpelPage {
     naam: ['', Validators.required],
     omschrijving: ['', Validators.required],
     uitgeverij: ['', Validators.required],
-    aantalSpelers: ['', Validators.required]      
+    aantalSpelers: ['', Validators.required],
+    foto: [''],      
     })
   }
 
@@ -42,12 +43,14 @@ export class CreateSpelPage {
     const naam = this.createSpelForm.value.naam;
     const uitgeverij = this.createSpelForm.value.uitgeverij;
     const omschrijving = this.createSpelForm.value.omschrijving;
-    const aantalSpeler = this.createSpelForm.value.aantalSpelers;    
+    const aantalSpeler = this.createSpelForm.value.aantalSpelers; 
+    const foto = this.createSpelForm.value.foto;   
     this.firestoreProvider.createSpel(
       naam,
       uitgeverij, 
       omschrijving, 
-      aantalSpeler
+      aantalSpeler,
+      foto
     ).then(
       () => {
         loading.dismiss().then(() => {

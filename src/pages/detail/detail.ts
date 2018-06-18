@@ -69,12 +69,10 @@ console.log(this.spel)
       ],
     });
     alert.present();
-  }
+  }  
 
-  
-
-   naarSpelDetail():void {
-     this.navCtrl.push('SpeldetailPage',{spel:this.spel});
+  naarSpelDetail():void {
+    this.navCtrl.push('SpeldetailPage',{spel:this.spel});
    } 
 
 }

@@ -3,6 +3,9 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Score } from '../../models/score.interface';
 import { Spel } from '../../models/spel.interface';
 import {AngularFireAuth } from 'angularfire2/auth'
+import { firestore } from 'firebase';
+import { } from 'angularfire2/firebase.app.module'
+import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
 
 /*
   Generated class for the FirestoreProvider provider.
@@ -18,7 +21,8 @@ export class FirestoreProvider {
 
   constructor(
     public firestore: AngularFirestore,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private afStorage: AngularFireStorage
   ) {
     this.afAuth.authState.subscribe(user =>{
       if(user) this.userId = user.uid
@@ -57,7 +61,8 @@ export class FirestoreProvider {
     naam: string,
     uitgeverij: string,
     omschrijving: string,    
-    aantalSpeler:number,    
+    aantalSpeler:number, 
+    foto:File  
   ): Promise<void> {
     const id = this.firestore.createId();
 
@@ -66,7 +71,8 @@ export class FirestoreProvider {
       naam,
       uitgeverij,
       omschrijving,
-      aantalSpeler,      
+      aantalSpeler, 
+      foto     
     });
   };
 

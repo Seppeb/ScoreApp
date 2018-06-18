@@ -6,4 +6,5 @@ export interface Score {
     winnaar:string;
     score?:number;
     datum:Date;
+    spel?:any;
 }
