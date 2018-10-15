@@ -19,15 +19,15 @@
         </ion-card-header>
         <ion-card-content>
             Winnaar van het spel: {{score.score.winnaar}}
-             <!-- <ion-card-content *ngIf="isErScore" >
+            <!-- <ion-card-content *ngIf="isErScore" >
                 met een score van {{score.score.score}}
-            </ion-card-content> -->            
+            </ion-card-content> -->
         </ion-card-content>
         <ion-card-content *ngIf="score.score.score">
-            met een totaal van {{ score.score.score}} punten 
-        </ion-card-content> 
+            met een totaal van {{ score.score.score}} punten
+        </ion-card-content>
         <ion-card-content>
-            Het Gespeelde spel: {{score.spel.naam}} <button small (click)='naarSpelDetail()'ion-button color="light">Spel Details</button>
+            Het Gespeelde spel: {{score.spel.naam}} <button small (click)='naarSpelDetail()' ion-button color="light">Spel Details</button>
         </ion-card-content>
         <ion-card-content>
             Omschrijving: {{score.score.omschrijving}}
